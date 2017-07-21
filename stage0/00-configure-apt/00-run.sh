@@ -11,8 +11,8 @@ else
 	rm -f ${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache
 fi
 
-on_chroot apt-key add - < files/ipocus.gpg.key
-[ "$IPOCUS_REPOS" = true ] && on_chroot apt-key add - < files/raspberrypi.gpg.key
+on_chroot apt-key add - < files/raspberrypi.gpg.key
+[ "$IPOCUS_REPOS" = true ] && on_chroot apt-key add - < files/ipocus.gpg.key
 on_chroot << EOF
 apt-get update
 apt-get dist-upgrade -y
